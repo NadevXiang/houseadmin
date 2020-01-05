@@ -56,7 +56,7 @@ public class BannerController {
      * 基础分页查询
      * @param pageRequest
      * @return
-     */    
+     */
 	@PostMapping(value="/findPage")
 	public HttpResult findPage(@RequestBody PageRequest pageRequest) {
 		return HttpResult.ok(bannerService.findPage(pageRequest));
