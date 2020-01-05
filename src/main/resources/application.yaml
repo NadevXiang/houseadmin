@@ -1,0 +1,18 @@
+spring:
+  profiles:
+    active: dev
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    open-in-view: false
+
+  servlet:
+    multipart:
+      # 设置单个文件和单个请求大小限制
+      # 修改此处需同时修改COSUtil中的 FILE_SIZE_LIMIT
+      max-file-size: 20MB
+      max-request-size: 200MB
+
+mybatis:
+  type-aliases-package: xyz.ruankun.houseadmin.entity
+  mapper-locations: classpath*:mapper/*.xml

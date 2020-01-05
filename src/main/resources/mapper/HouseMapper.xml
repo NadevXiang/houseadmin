@@ -1,0 +1,497 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="xyz.ruankun.houseadmin.mapper.HouseMapper">
+
+  <resultMap id="BaseResultMap" type="xyz.ruankun.houseadmin.entity.House">
+	<id column="id" jdbcType="INTEGER" property="id" />
+	<result column="user_id" jdbcType="INTEGER" property="userId" />
+	<result column="house_info" jdbcType="VARCHAR" property="houseInfo" />
+	<result column="released" jdbcType="TINYINT" property="released" />
+	<result column="rented" jdbcType="TINYINT" property="rented" />
+	<result column="tenant_id" jdbcType="INTEGER" property="tenantId" />
+	<result column="cash" jdbcType="INTEGER" property="cash" />
+	<result column="cash_type" jdbcType="VARCHAR" property="cashType" />
+	<result column="area" jdbcType="FLOAT" property="area" />
+	<result column="floor" jdbcType="TINYINT" property="floor" />
+	<result column="gmt_create" jdbcType="TIMESTAMP" property="gmtCreate" />
+	<result column="gmt_modify" jdbcType="TIMESTAMP" property="gmtModify" />
+	<result column="orientation" jdbcType="VARCHAR" property="orientation" />
+	<result column="daylighting" jdbcType="VARCHAR" property="daylighting" />
+	<result column="textarea" jdbcType="VARCHAR" property="textarea" />
+	<result column="has_elevator" jdbcType="TINYINT" property="hasElevator" />
+	<result column="has_televison" jdbcType="TINYINT" property="hasTelevison" />
+	<result column="has_refrigerator" jdbcType="TINYINT" property="hasRefrigerator" />
+	<result column="has_washer" jdbcType="TINYINT" property="hasWasher" />
+	<result column="has_air_conditioner" jdbcType="TINYINT" property="hasAirConditioner" />
+	<result column="has_heater" jdbcType="TINYINT" property="hasHeater" />
+	<result column="has_bed" jdbcType="TINYINT" property="hasBed" />
+	<result column="has_heating" jdbcType="TINYINT" property="hasHeating" />
+	<result column="has_boradband" jdbcType="TINYINT" property="hasBoradband" />
+	<result column="has_wardrobe" jdbcType="TINYINT" property="hasWardrobe" />
+	<result column="has_gas" jdbcType="TINYINT" property="hasGas" />
+	<result column="province" jdbcType="VARCHAR" property="province" />
+	<result column="city" jdbcType="VARCHAR" property="city" />
+	<result column="district" jdbcType="VARCHAR" property="district" />
+	<result column="street" jdbcType="VARCHAR" property="street" />
+	<result column="street_number" jdbcType="VARCHAR" property="streetNumber" />
+	<result column="lat" jdbcType="DOUBLE" property="lat" />
+	<result column="lng" jdbcType="DOUBLE" property="lng" />
+	<result column="house_type" jdbcType="VARCHAR" property="houseType" />
+	<result column="has_complete" jdbcType="TINYINT" property="hasComplete" />
+	<result column="short_rent" jdbcType="TINYINT" property="shortRent" />
+	<result column="girl_shared" jdbcType="TINYINT" property="girlShared" />
+	<result column="boy_shared" jdbcType="TINYINT" property="boyShared" />
+	<result column="has_balcony" jdbcType="TINYINT" property="hasBalcony" />
+	<result column="rent_type" jdbcType="TINYINT" property="rentType" />
+	<result column="heading_img" jdbcType="VARCHAR" property="headingImg" />
+	<result column="tags" jdbcType="VARCHAR" property="tags" />
+	<result column="title" jdbcType="VARCHAR" property="title" />
+	<result column="decoration" jdbcType="VARCHAR" property="decoration" />
+	<result column="check_in_date" jdbcType="TIMESTAMP" property="checkInDate" />
+	<result column="inspection" jdbcType="VARCHAR" property="inspection" />
+  </resultMap>
+  
+  <insert id="add" parameterType="xyz.ruankun.houseadmin.entity.House">
+    insert into house
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="houseInfo != null">
+        house_info,
+      </if>
+      <if test="released != null">
+        released,
+      </if>
+      <if test="rented != null">
+        rented,
+      </if>
+      <if test="tenantId != null">
+        tenant_id,
+      </if>
+      <if test="cash != null">
+        cash,
+      </if>
+      <if test="cashType != null">
+        cash_type,
+      </if>
+      <if test="area != null">
+        area,
+      </if>
+      <if test="floor != null">
+        floor,
+      </if>
+      <if test="gmtCreate != null">
+        gmt_create,
+      </if>
+      <if test="gmtModify != null">
+        gmt_modify,
+      </if>
+      <if test="orientation != null">
+        orientation,
+      </if>
+      <if test="daylighting != null">
+        daylighting,
+      </if>
+      <if test="textarea != null">
+        textarea,
+      </if>
+      <if test="hasElevator != null">
+        has_elevator,
+      </if>
+      <if test="hasTelevison != null">
+        has_televison,
+      </if>
+      <if test="hasRefrigerator != null">
+        has_refrigerator,
+      </if>
+      <if test="hasWasher != null">
+        has_washer,
+      </if>
+      <if test="hasAirConditioner != null">
+        has_air_conditioner,
+      </if>
+      <if test="hasHeater != null">
+        has_heater,
+      </if>
+      <if test="hasBed != null">
+        has_bed,
+      </if>
+      <if test="hasHeating != null">
+        has_heating,
+      </if>
+      <if test="hasBoradband != null">
+        has_boradband,
+      </if>
+      <if test="hasWardrobe != null">
+        has_wardrobe,
+      </if>
+      <if test="hasGas != null">
+        has_gas,
+      </if>
+      <if test="province != null">
+        province,
+      </if>
+      <if test="city != null">
+        city,
+      </if>
+      <if test="district != null">
+        district,
+      </if>
+      <if test="street != null">
+        street,
+      </if>
+      <if test="streetNumber != null">
+        street_number,
+      </if>
+      <if test="lat != null">
+        lat,
+      </if>
+      <if test="lng != null">
+        lng,
+      </if>
+      <if test="houseType != null">
+        house_type,
+      </if>
+      <if test="hasComplete != null">
+        has_complete,
+      </if>
+      <if test="shortRent != null">
+        short_rent,
+      </if>
+      <if test="girlShared != null">
+        girl_shared,
+      </if>
+      <if test="boyShared != null">
+        boy_shared,
+      </if>
+      <if test="hasBalcony != null">
+        has_balcony,
+      </if>
+      <if test="rentType != null">
+        rent_type,
+      </if>
+      <if test="headingImg != null">
+        heading_img,
+      </if>
+      <if test="tags != null">
+        tags,
+      </if>
+      <if test="title != null">
+        title,
+      </if>
+      <if test="decoration != null">
+        decoration,
+      </if>
+      <if test="checkInDate != null">
+        check_in_date,
+      </if>
+      <if test="inspection != null">
+        inspection,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="houseInfo != null">
+        #{houseInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="released != null">
+        #{released,jdbcType=TINYINT},
+      </if>
+      <if test="rented != null">
+        #{rented,jdbcType=TINYINT},
+      </if>
+      <if test="tenantId != null">
+        #{tenantId,jdbcType=INTEGER},
+      </if>
+      <if test="cash != null">
+        #{cash,jdbcType=INTEGER},
+      </if>
+      <if test="cashType != null">
+        #{cashType,jdbcType=VARCHAR},
+      </if>
+      <if test="area != null">
+        #{area,jdbcType=FLOAT},
+      </if>
+      <if test="floor != null">
+        #{floor,jdbcType=TINYINT},
+      </if>
+      <if test="gmtCreate != null">
+        #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModify != null">
+        #{gmtModify,jdbcType=TIMESTAMP},
+      </if>
+      <if test="orientation != null">
+        #{orientation,jdbcType=VARCHAR},
+      </if>
+      <if test="daylighting != null">
+        #{daylighting,jdbcType=VARCHAR},
+      </if>
+      <if test="textarea != null">
+        #{textarea,jdbcType=VARCHAR},
+      </if>
+      <if test="hasElevator != null">
+        #{hasElevator,jdbcType=TINYINT},
+      </if>
+      <if test="hasTelevison != null">
+        #{hasTelevison,jdbcType=TINYINT},
+      </if>
+      <if test="hasRefrigerator != null">
+        #{hasRefrigerator,jdbcType=TINYINT},
+      </if>
+      <if test="hasWasher != null">
+        #{hasWasher,jdbcType=TINYINT},
+      </if>
+      <if test="hasAirConditioner != null">
+        #{hasAirConditioner,jdbcType=TINYINT},
+      </if>
+      <if test="hasHeater != null">
+        #{hasHeater,jdbcType=TINYINT},
+      </if>
+      <if test="hasBed != null">
+        #{hasBed,jdbcType=TINYINT},
+      </if>
+      <if test="hasHeating != null">
+        #{hasHeating,jdbcType=TINYINT},
+      </if>
+      <if test="hasBoradband != null">
+        #{hasBoradband,jdbcType=TINYINT},
+      </if>
+      <if test="hasWardrobe != null">
+        #{hasWardrobe,jdbcType=TINYINT},
+      </if>
+      <if test="hasGas != null">
+        #{hasGas,jdbcType=TINYINT},
+      </if>
+      <if test="province != null">
+        #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null">
+        #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="district != null">
+        #{district,jdbcType=VARCHAR},
+      </if>
+      <if test="street != null">
+        #{street,jdbcType=VARCHAR},
+      </if>
+      <if test="streetNumber != null">
+        #{streetNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="lat != null">
+        #{lat,jdbcType=DOUBLE},
+      </if>
+      <if test="lng != null">
+        #{lng,jdbcType=DOUBLE},
+      </if>
+      <if test="houseType != null">
+        #{houseType,jdbcType=VARCHAR},
+      </if>
+      <if test="hasComplete != null">
+        #{hasComplete,jdbcType=TINYINT},
+      </if>
+      <if test="shortRent != null">
+        #{shortRent,jdbcType=TINYINT},
+      </if>
+      <if test="girlShared != null">
+        #{girlShared,jdbcType=TINYINT},
+      </if>
+      <if test="boyShared != null">
+        #{boyShared,jdbcType=TINYINT},
+      </if>
+      <if test="hasBalcony != null">
+        #{hasBalcony,jdbcType=TINYINT},
+      </if>
+      <if test="rentType != null">
+        #{rentType,jdbcType=TINYINT},
+      </if>
+      <if test="headingImg != null">
+        #{headingImg,jdbcType=VARCHAR},
+      </if>
+      <if test="tags != null">
+        #{tags,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="decoration != null">
+        #{decoration,jdbcType=VARCHAR},
+      </if>
+      <if test="checkInDate != null">
+        #{checkInDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="inspection != null">
+        #{inspection,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+
+  <delete id="delete" parameterType="java.lang.Integer">
+    delete from house
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  
+  <update id="update" parameterType="xyz.ruankun.houseadmin.entity.House">
+    update house
+    <set>
+      <if test="id != null">
+        id = #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="houseInfo != null">
+        house_info = #{houseInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="released != null">
+        released = #{released,jdbcType=TINYINT},
+      </if>
+      <if test="rented != null">
+        rented = #{rented,jdbcType=TINYINT},
+      </if>
+      <if test="tenantId != null">
+        tenant_id = #{tenantId,jdbcType=INTEGER},
+      </if>
+      <if test="cash != null">
+        cash = #{cash,jdbcType=INTEGER},
+      </if>
+      <if test="cashType != null">
+        cash_type = #{cashType,jdbcType=VARCHAR},
+      </if>
+      <if test="area != null">
+        area = #{area,jdbcType=FLOAT},
+      </if>
+      <if test="floor != null">
+        floor = #{floor,jdbcType=TINYINT},
+      </if>
+      <if test="gmtCreate != null">
+        gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModify != null">
+        gmt_modify = #{gmtModify,jdbcType=TIMESTAMP},
+      </if>
+      <if test="orientation != null">
+        orientation = #{orientation,jdbcType=VARCHAR},
+      </if>
+      <if test="daylighting != null">
+        daylighting = #{daylighting,jdbcType=VARCHAR},
+      </if>
+      <if test="textarea != null">
+        textarea = #{textarea,jdbcType=VARCHAR},
+      </if>
+      <if test="hasElevator != null">
+        has_elevator = #{hasElevator,jdbcType=TINYINT},
+      </if>
+      <if test="hasTelevison != null">
+        has_televison = #{hasTelevison,jdbcType=TINYINT},
+      </if>
+      <if test="hasRefrigerator != null">
+        has_refrigerator = #{hasRefrigerator,jdbcType=TINYINT},
+      </if>
+      <if test="hasWasher != null">
+        has_washer = #{hasWasher,jdbcType=TINYINT},
+      </if>
+      <if test="hasAirConditioner != null">
+        has_air_conditioner = #{hasAirConditioner,jdbcType=TINYINT},
+      </if>
+      <if test="hasHeater != null">
+        has_heater = #{hasHeater,jdbcType=TINYINT},
+      </if>
+      <if test="hasBed != null">
+        has_bed = #{hasBed,jdbcType=TINYINT},
+      </if>
+      <if test="hasHeating != null">
+        has_heating = #{hasHeating,jdbcType=TINYINT},
+      </if>
+      <if test="hasBoradband != null">
+        has_boradband = #{hasBoradband,jdbcType=TINYINT},
+      </if>
+      <if test="hasWardrobe != null">
+        has_wardrobe = #{hasWardrobe,jdbcType=TINYINT},
+      </if>
+      <if test="hasGas != null">
+        has_gas = #{hasGas,jdbcType=TINYINT},
+      </if>
+      <if test="province != null">
+        province = #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null">
+        city = #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="district != null">
+        district = #{district,jdbcType=VARCHAR},
+      </if>
+      <if test="street != null">
+        street = #{street,jdbcType=VARCHAR},
+      </if>
+      <if test="streetNumber != null">
+        street_number = #{streetNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="lat != null">
+        lat = #{lat,jdbcType=DOUBLE},
+      </if>
+      <if test="lng != null">
+        lng = #{lng,jdbcType=DOUBLE},
+      </if>
+      <if test="houseType != null">
+        house_type = #{houseType,jdbcType=VARCHAR},
+      </if>
+      <if test="hasComplete != null">
+        has_complete = #{hasComplete,jdbcType=TINYINT},
+      </if>
+      <if test="shortRent != null">
+        short_rent = #{shortRent,jdbcType=TINYINT},
+      </if>
+      <if test="girlShared != null">
+        girl_shared = #{girlShared,jdbcType=TINYINT},
+      </if>
+      <if test="boyShared != null">
+        boy_shared = #{boyShared,jdbcType=TINYINT},
+      </if>
+      <if test="hasBalcony != null">
+        has_balcony = #{hasBalcony,jdbcType=TINYINT},
+      </if>
+      <if test="rentType != null">
+        rent_type = #{rentType,jdbcType=TINYINT},
+      </if>
+      <if test="headingImg != null">
+        heading_img = #{headingImg,jdbcType=VARCHAR},
+      </if>
+      <if test="tags != null">
+        tags = #{tags,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="decoration != null">
+        decoration = #{decoration,jdbcType=VARCHAR},
+      </if>
+      <if test="checkInDate != null">
+        check_in_date = #{checkInDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="inspection != null">
+        inspection = #{inspection,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+  <select id="findById" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select * from house
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  
+  <select id="findPage" resultMap="BaseResultMap">
+    select * from house
+  </select>
+  
+</mapper>

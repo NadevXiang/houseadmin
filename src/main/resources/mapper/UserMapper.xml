@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="xyz.ruankun.houseadmin.mapper.UserMapper">
+
+  <resultMap id="BaseResultMap" type="xyz.ruankun.houseadmin.entity.User">
+	<id column="id" jdbcType="INTEGER" property="id" />
+	<result column="open_id" jdbcType="VARCHAR" property="openId" />
+	<result column="nick_name" jdbcType="VARCHAR" property="nickName" />
+	<result column="city" jdbcType="VARCHAR" property="city" />
+	<result column="province" jdbcType="VARCHAR" property="province" />
+	<result column="country" jdbcType="VARCHAR" property="country" />
+	<result column="language" jdbcType="VARCHAR" property="language" />
+	<result column="gender" jdbcType="TINYINT" property="gender" />
+	<result column="money" jdbcType="DECIMAL" property="money" />
+	<result column="gmt_create" jdbcType="TIMESTAMP" property="gmtCreate" />
+	<result column="gmt_modify" jdbcType="TIMESTAMP" property="gmtModify" />
+	<result column="landlord" jdbcType="TINYINT" property="landlord" />
+	<result column="auth_img_url" jdbcType="VARCHAR" property="authImgUrl" />
+	<result column="id_card_front_img" jdbcType="VARCHAR" property="idCardFrontImg" />
+	<result column="id_card_back_img" jdbcType="VARCHAR" property="idCardBackImg" />
+	<result column="handwritten_signature" jdbcType="VARCHAR" property="handwrittenSignature" />
+	<result column="is_auth" jdbcType="TINYINT" property="isAuth" />
+  </resultMap>
+  
+  <insert id="add" parameterType="xyz.ruankun.houseadmin.entity.User">
+    insert into user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="openId != null">
+        open_id,
+      </if>
+      <if test="nickName != null">
+        nick_name,
+      </if>
+      <if test="city != null">
+        city,
+      </if>
+      <if test="province != null">
+        province,
+      </if>
+      <if test="country != null">
+        country,
+      </if>
+      <if test="language != null">
+        language,
+      </if>
+      <if test="gender != null">
+        gender,
+      </if>
+      <if test="money != null">
+        money,
+      </if>
+      <if test="gmtCreate != null">
+        gmt_create,
+      </if>
+      <if test="gmtModify != null">
+        gmt_modify,
+      </if>
+      <if test="landlord != null">
+        landlord,
+      </if>
+      <if test="authImgUrl != null">
+        auth_img_url,
+      </if>
+      <if test="idCardFrontImg != null">
+        id_card_front_img,
+      </if>
+      <if test="idCardBackImg != null">
+        id_card_back_img,
+      </if>
+      <if test="handwrittenSignature != null">
+        handwritten_signature,
+      </if>
+      <if test="isAuth != null">
+        is_auth,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="openId != null">
+        #{openId,jdbcType=VARCHAR},
+      </if>
+      <if test="nickName != null">
+        #{nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null">
+        #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null">
+        #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="country != null">
+        #{country,jdbcType=VARCHAR},
+      </if>
+      <if test="language != null">
+        #{language,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null">
+        #{gender,jdbcType=TINYINT},
+      </if>
+      <if test="money != null">
+        #{money,jdbcType=DECIMAL},
+      </if>
+      <if test="gmtCreate != null">
+        #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModify != null">
+        #{gmtModify,jdbcType=TIMESTAMP},
+      </if>
+      <if test="landlord != null">
+        #{landlord,jdbcType=TINYINT},
+      </if>
+      <if test="authImgUrl != null">
+        #{authImgUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="idCardFrontImg != null">
+        #{idCardFrontImg,jdbcType=VARCHAR},
+      </if>
+      <if test="idCardBackImg != null">
+        #{idCardBackImg,jdbcType=VARCHAR},
+      </if>
+      <if test="handwrittenSignature != null">
+        #{handwrittenSignature,jdbcType=VARCHAR},
+      </if>
+      <if test="isAuth != null">
+        #{isAuth,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+
+  <delete id="delete" parameterType="java.lang.Integer">
+    delete from user
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  
+  <update id="update" parameterType="xyz.ruankun.houseadmin.entity.User">
+    update user
+    <set>
+      <if test="id != null">
+        id = #{id,jdbcType=INTEGER},
+      </if>
+      <if test="openId != null">
+        open_id = #{openId,jdbcType=VARCHAR},
+      </if>
+      <if test="nickName != null">
+        nick_name = #{nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null">
+        city = #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null">
+        province = #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="country != null">
+        country = #{country,jdbcType=VARCHAR},
+      </if>
+      <if test="language != null">
+        language = #{language,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null">
+        gender = #{gender,jdbcType=TINYINT},
+      </if>
+      <if test="money != null">
+        money = #{money,jdbcType=DECIMAL},
+      </if>
+      <if test="gmtCreate != null">
+        gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModify != null">
+        gmt_modify = #{gmtModify,jdbcType=TIMESTAMP},
+      </if>
+      <if test="landlord != null">
+        landlord = #{landlord,jdbcType=TINYINT},
+      </if>
+      <if test="authImgUrl != null">
+        auth_img_url = #{authImgUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="idCardFrontImg != null">
+        id_card_front_img = #{idCardFrontImg,jdbcType=VARCHAR},
+      </if>
+      <if test="idCardBackImg != null">
+        id_card_back_img = #{idCardBackImg,jdbcType=VARCHAR},
+      </if>
+      <if test="handwrittenSignature != null">
+        handwritten_signature = #{handwrittenSignature,jdbcType=VARCHAR},
+      </if>
+      <if test="isAuth != null">
+        is_auth = #{isAuth,jdbcType=TINYINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+  <select id="findById" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select * from user
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  
+  <select id="findPage" resultMap="BaseResultMap">
+    select * from user
+  </select>
+  
+</mapper>

@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="xyz.ruankun.houseadmin.mapper.BillMapper">
+
+  <resultMap id="BaseResultMap" type="xyz.ruankun.houseadmin.entity.Bill">
+	<id column="id" jdbcType="INTEGER" property="id" />
+	<result column="user_id" jdbcType="INTEGER" property="userId" />
+	<result column="house_id" jdbcType="INTEGER" property="houseId" />
+	<result column="money" jdbcType="DOUBLE" property="money" />
+	<result column="pay_item" jdbcType="VARCHAR" property="payItem" />
+	<result column="is_paid" jdbcType="TINYINT" property="isPaid" />
+	<result column="out_trade_no" jdbcType="VARCHAR" property="outTradeNo" />
+	<result column="gmt_create" jdbcType="TIMESTAMP" property="gmtCreate" />
+	<result column="remark" jdbcType="VARCHAR" property="remark" />
+	<result column="dead_date" jdbcType="TIMESTAMP" property="deadDate" />
+	<result column="pay_date" jdbcType="TIMESTAMP" property="payDate" />
+	<result column="pay_detail1" jdbcType="VARCHAR" property="payDetail1" />
+	<result column="pay_detail_fee1" jdbcType="DOUBLE" property="payDetailFee1" />
+	<result column="pay_detail2" jdbcType="VARCHAR" property="payDetail2" />
+	<result column="pay_detail_fee2" jdbcType="DOUBLE" property="payDetailFee2" />
+	<result column="water_use" jdbcType="VARCHAR" property="waterUse" />
+	<result column="water_unt_price" jdbcType="DOUBLE" property="waterUntPrice" />
+	<result column="ele_use" jdbcType="VARCHAR" property="eleUse" />
+	<result column="ele_unt_price" jdbcType="DOUBLE" property="eleUntPrice" />
+  </resultMap>
+  
+  <insert id="add" parameterType="xyz.ruankun.houseadmin.entity.Bill">
+    insert into bill
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="houseId != null">
+        house_id,
+      </if>
+      <if test="money != null">
+        money,
+      </if>
+      <if test="payItem != null">
+        pay_item,
+      </if>
+      <if test="isPaid != null">
+        is_paid,
+      </if>
+      <if test="outTradeNo != null">
+        out_trade_no,
+      </if>
+      <if test="gmtCreate != null">
+        gmt_create,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="deadDate != null">
+        dead_date,
+      </if>
+      <if test="payDate != null">
+        pay_date,
+      </if>
+      <if test="payDetail1 != null">
+        pay_detail1,
+      </if>
+      <if test="payDetailFee1 != null">
+        pay_detail_fee1,
+      </if>
+      <if test="payDetail2 != null">
+        pay_detail2,
+      </if>
+      <if test="payDetailFee2 != null">
+        pay_detail_fee2,
+      </if>
+      <if test="waterUse != null">
+        water_use,
+      </if>
+      <if test="waterUntPrice != null">
+        water_unt_price,
+      </if>
+      <if test="eleUse != null">
+        ele_use,
+      </if>
+      <if test="eleUntPrice != null">
+        ele_unt_price,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="houseId != null">
+        #{houseId,jdbcType=INTEGER},
+      </if>
+      <if test="money != null">
+        #{money,jdbcType=DOUBLE},
+      </if>
+      <if test="payItem != null">
+        #{payItem,jdbcType=VARCHAR},
+      </if>
+      <if test="isPaid != null">
+        #{isPaid,jdbcType=TINYINT},
+      </if>
+      <if test="outTradeNo != null">
+        #{outTradeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="gmtCreate != null">
+        #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="deadDate != null">
+        #{deadDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="payDate != null">
+        #{payDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="payDetail1 != null">
+        #{payDetail1,jdbcType=VARCHAR},
+      </if>
+      <if test="payDetailFee1 != null">
+        #{payDetailFee1,jdbcType=DOUBLE},
+      </if>
+      <if test="payDetail2 != null">
+        #{payDetail2,jdbcType=VARCHAR},
+      </if>
+      <if test="payDetailFee2 != null">
+        #{payDetailFee2,jdbcType=DOUBLE},
+      </if>
+      <if test="waterUse != null">
+        #{waterUse,jdbcType=VARCHAR},
+      </if>
+      <if test="waterUntPrice != null">
+        #{waterUntPrice,jdbcType=DOUBLE},
+      </if>
+      <if test="eleUse != null">
+        #{eleUse,jdbcType=VARCHAR},
+      </if>
+      <if test="eleUntPrice != null">
+        #{eleUntPrice,jdbcType=DOUBLE},
+      </if>
+    </trim>
+  </insert>
+
+  <delete id="delete" parameterType="java.lang.Integer">
+    delete from bill
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  
+  <update id="update" parameterType="xyz.ruankun.houseadmin.entity.Bill">
+    update bill
+    <set>
+      <if test="id != null">
+        id = #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="houseId != null">
+        house_id = #{houseId,jdbcType=INTEGER},
+      </if>
+      <if test="money != null">
+        money = #{money,jdbcType=DOUBLE},
+      </if>
+      <if test="payItem != null">
+        pay_item = #{payItem,jdbcType=VARCHAR},
+      </if>
+      <if test="isPaid != null">
+        is_paid = #{isPaid,jdbcType=TINYINT},
+      </if>
+      <if test="outTradeNo != null">
+        out_trade_no = #{outTradeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="gmtCreate != null">
+        gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="deadDate != null">
+        dead_date = #{deadDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="payDate != null">
+        pay_date = #{payDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="payDetail1 != null">
+        pay_detail1 = #{payDetail1,jdbcType=VARCHAR},
+      </if>
+      <if test="payDetailFee1 != null">
+        pay_detail_fee1 = #{payDetailFee1,jdbcType=DOUBLE},
+      </if>
+      <if test="payDetail2 != null">
+        pay_detail2 = #{payDetail2,jdbcType=VARCHAR},
+      </if>
+      <if test="payDetailFee2 != null">
+        pay_detail_fee2 = #{payDetailFee2,jdbcType=DOUBLE},
+      </if>
+      <if test="waterUse != null">
+        water_use = #{waterUse,jdbcType=VARCHAR},
+      </if>
+      <if test="waterUntPrice != null">
+        water_unt_price = #{waterUntPrice,jdbcType=DOUBLE},
+      </if>
+      <if test="eleUse != null">
+        ele_use = #{eleUse,jdbcType=VARCHAR},
+      </if>
+      <if test="eleUntPrice != null">
+        ele_unt_price = #{eleUntPrice,jdbcType=DOUBLE},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+  <select id="findById" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select * from bill
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  
+  <select id="findPage" resultMap="BaseResultMap">
+    select * from bill
+  </select>
+  
+</mapper>

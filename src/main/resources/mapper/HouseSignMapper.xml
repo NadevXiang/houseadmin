@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="xyz.ruankun.houseadmin.mapper.HouseSignMapper">
+
+  <resultMap id="BaseResultMap" type="xyz.ruankun.houseadmin.entity.HouseSign">
+	<id column="id" jdbcType="INTEGER" property="id" />
+	<result column="user_id" jdbcType="INTEGER" property="userId" />
+	<result column="house_id" jdbcType="INTEGER" property="houseId" />
+	<result column="start_date" jdbcType="TIMESTAMP" property="startDate" />
+	<result column="end_date" jdbcType="TIMESTAMP" property="endDate" />
+	<result column="exp_date" jdbcType="INTEGER" property="expDate" />
+	<result column="gmt_create" jdbcType="TIMESTAMP" property="gmtCreate" />
+	<result column="gmt_modified" jdbcType="TIMESTAMP" property="gmtModified" />
+	<result column="out_trade_no" jdbcType="VARBINARY" property="outTradeNo" />
+	<result column="is_paid" jdbcType="TINYINT" property="isPaid" />
+	<result column="is_fulfill" jdbcType="TINYINT" property="isFulfill" />
+	<result column="hand_write_img" jdbcType="VARCHAR" property="handWriteImg" />
+	<result column="contract_img" jdbcType="VARCHAR" property="contractImg" />
+	<result column="user_name" jdbcType="VARCHAR" property="userName" />
+	<result column="idcard_num" jdbcType="VARBINARY" property="idcardNum" />
+	<result column="is_out" jdbcType="INTEGER" property="isOut" />
+	<result column="is_deleted" jdbcType="INTEGER" property="isDeleted" />
+  </resultMap>
+  
+  <insert id="add" parameterType="xyz.ruankun.houseadmin.entity.HouseSign">
+    insert into house_sign
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="houseId != null">
+        house_id,
+      </if>
+      <if test="startDate != null">
+        start_date,
+      </if>
+      <if test="endDate != null">
+        end_date,
+      </if>
+      <if test="expDate != null">
+        exp_date,
+      </if>
+      <if test="gmtCreate != null">
+        gmt_create,
+      </if>
+      <if test="gmtModified != null">
+        gmt_modified,
+      </if>
+      <if test="outTradeNo != null">
+        out_trade_no,
+      </if>
+      <if test="isPaid != null">
+        is_paid,
+      </if>
+      <if test="isFulfill != null">
+        is_fulfill,
+      </if>
+      <if test="handWriteImg != null">
+        hand_write_img,
+      </if>
+      <if test="contractImg != null">
+        contract_img,
+      </if>
+      <if test="userName != null">
+        user_name,
+      </if>
+      <if test="idcardNum != null">
+        idcard_num,
+      </if>
+      <if test="isOut != null">
+        is_out,
+      </if>
+      <if test="isDeleted != null">
+        is_deleted,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="houseId != null">
+        #{houseId,jdbcType=INTEGER},
+      </if>
+      <if test="startDate != null">
+        #{startDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endDate != null">
+        #{endDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="expDate != null">
+        #{expDate,jdbcType=INTEGER},
+      </if>
+      <if test="gmtCreate != null">
+        #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null">
+        #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="outTradeNo != null">
+        #{outTradeNo,jdbcType=VARBINARY},
+      </if>
+      <if test="isPaid != null">
+        #{isPaid,jdbcType=TINYINT},
+      </if>
+      <if test="isFulfill != null">
+        #{isFulfill,jdbcType=TINYINT},
+      </if>
+      <if test="handWriteImg != null">
+        #{handWriteImg,jdbcType=VARCHAR},
+      </if>
+      <if test="contractImg != null">
+        #{contractImg,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null">
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="idcardNum != null">
+        #{idcardNum,jdbcType=VARBINARY},
+      </if>
+      <if test="isOut != null">
+        #{isOut,jdbcType=INTEGER},
+      </if>
+      <if test="isDeleted != null">
+        #{isDeleted,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+
+  <delete id="delete" parameterType="java.lang.Integer">
+    delete from house_sign
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  
+  <update id="update" parameterType="xyz.ruankun.houseadmin.entity.HouseSign">
+    update house_sign
+    <set>
+      <if test="id != null">
+        id = #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="houseId != null">
+        house_id = #{houseId,jdbcType=INTEGER},
+      </if>
+      <if test="startDate != null">
+        start_date = #{startDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endDate != null">
+        end_date = #{endDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="expDate != null">
+        exp_date = #{expDate,jdbcType=INTEGER},
+      </if>
+      <if test="gmtCreate != null">
+        gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null">
+        gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="outTradeNo != null">
+        out_trade_no = #{outTradeNo,jdbcType=VARBINARY},
+      </if>
+      <if test="isPaid != null">
+        is_paid = #{isPaid,jdbcType=TINYINT},
+      </if>
+      <if test="isFulfill != null">
+        is_fulfill = #{isFulfill,jdbcType=TINYINT},
+      </if>
+      <if test="handWriteImg != null">
+        hand_write_img = #{handWriteImg,jdbcType=VARCHAR},
+      </if>
+      <if test="contractImg != null">
+        contract_img = #{contractImg,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null">
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="idcardNum != null">
+        idcard_num = #{idcardNum,jdbcType=VARBINARY},
+      </if>
+      <if test="isOut != null">
+        is_out = #{isOut,jdbcType=INTEGER},
+      </if>
+      <if test="isDeleted != null">
+        is_deleted = #{isDeleted,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+  <select id="findById" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select * from house_sign
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  
+  <select id="findPage" resultMap="BaseResultMap">
+    select * from house_sign
+  </select>
+  
+</mapper>

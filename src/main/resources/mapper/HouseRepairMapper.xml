@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="xyz.ruankun.houseadmin.mapper.HouseRepairMapper">
+
+  <resultMap id="BaseResultMap" type="xyz.ruankun.houseadmin.entity.HouseRepair">
+	<id column="id" jdbcType="BIGINT" property="id" />
+	<result column="house_id" jdbcType="INTEGER" property="houseId" />
+	<result column="user_id" jdbcType="INTEGER" property="userId" />
+	<result column="phone" jdbcType="VARCHAR" property="phone" />
+	<result column="content" jdbcType="VARCHAR" property="content" />
+	<result column="status" jdbcType="TINYINT" property="status" />
+	<result column="gmt_create" jdbcType="TIMESTAMP" property="gmtCreate" />
+	<result column="house_info" jdbcType="VARCHAR" property="houseInfo" />
+	<result column="house_img_url" jdbcType="VARCHAR" property="houseImgUrl" />
+	<result column="repaire_time" jdbcType="TIMESTAMP" property="repaireTime" />
+  </resultMap>
+  
+  <insert id="add" parameterType="xyz.ruankun.houseadmin.entity.HouseRepair">
+    insert into house_repair
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="houseId != null">
+        house_id,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="phone != null">
+        phone,
+      </if>
+      <if test="content != null">
+        content,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="gmtCreate != null">
+        gmt_create,
+      </if>
+      <if test="houseInfo != null">
+        house_info,
+      </if>
+      <if test="houseImgUrl != null">
+        house_img_url,
+      </if>
+      <if test="repaireTime != null">
+        repaire_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="houseId != null">
+        #{houseId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="gmtCreate != null">
+        #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="houseInfo != null">
+        #{houseInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="houseImgUrl != null">
+        #{houseImgUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="repaireTime != null">
+        #{repaireTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+
+  <delete id="delete" parameterType="java.lang.Long">
+    delete from house_repair
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  
+  <update id="update" parameterType="xyz.ruankun.houseadmin.entity.HouseRepair">
+    update house_repair
+    <set>
+      <if test="id != null">
+        id = #{id,jdbcType=BIGINT},
+      </if>
+      <if test="houseId != null">
+        house_id = #{houseId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="phone != null">
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="gmtCreate != null">
+        gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="houseInfo != null">
+        house_info = #{houseInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="houseImgUrl != null">
+        house_img_url = #{houseImgUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="repaireTime != null">
+        repaire_time = #{repaireTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+  <select id="findById" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select * from house_repair
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  
+  <select id="findPage" resultMap="BaseResultMap">
+    select * from house_repair
+  </select>
+  
+</mapper>
